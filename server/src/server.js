@@ -1,9 +1,10 @@
 import express from 'express';
-import dotenv from 'dotenv';
+import dotenv from 'dotenv'
+import { connectDB } from './config/db.js';
 
 dotenv.config();
 const app = express();
-//console.log(process.env.MONGO_URI);
+
 app.get('/', (req, res) => {
   res.send('Welcome to server!');
 });
@@ -19,5 +20,6 @@ app.get('/test', (req, res) => {
 
 
 app.listen(3000, () => {
-  console.log('Server running at http://localhost:3000/');
+    connectDB();
+    console.log('Server running at http://localhost:3000/');
 });
