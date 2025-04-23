@@ -1,7 +1,8 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "MERN Restaurant-management-system",
+  "description": "MERN Restaurant-management-system", 
+  
   "main": "index.js",
   "scripts": {
     "start": "node src/server.js",
