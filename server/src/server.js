@@ -6,24 +6,30 @@ import User from './models/userModel.js';
 
 dotenv.config();
 const app = express();
+app.use(cors());
+app.use(express.json());
 
 // app.get('/', (req, res) => {
 //   res.send('Welcome to server!');
 // });
 
-app.post('/api/users', async (req, res) => {
-    const user = req.body;
-
-    if (!user.name || !user.email || !user.password) {
-        return res.status(400).send({ message: 'All fields are required' });
-    }
-
-    const newUser = new User(user);
+app.post('/api/users/register', async (req, res) => {
     try {
-        await newUser.save();
-        res.status(201).send({ message: 'User created successfully', user: newUser });
+        const { name, email, password } = req.body;
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            return res.status(400).json({ message: 'User already exists' });
+        }
+        const newUser = new User({name,email,password});
+        await newUser.save() 
+        res.status(201).json({ 
+            message: 'User registered', user: newUser 
+        });
     } catch (error) {
-        res.status(500).send({ message: 'Error creating user', error });
+        console.error('Server error:', error);
+        res.status(500).json({ 
+            message: 'Error registering user', error: error.message 
+        });
     }
 });
 
@@ -34,7 +40,7 @@ app.post('/api/users', async (req, res) => {
 // });
 
 
-app.listen(3000, () => {
+app.listen(5000, () => {
     connectDB();
-    console.log('Server running at http://localhost:3000/');
+    console.log('Server running at http://localhost:5000/');
 });

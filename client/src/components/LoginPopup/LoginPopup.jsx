@@ -3,12 +3,9 @@ import "./LoginPopup.css";
 import { assets } from "../../assets/assets";
 
 const LoginPopup = ({ setShowLogin }) => {
+  
   const [currentState, setCurrentState] = useState("Login")
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
+  const [formData, setFormData] = useState({ name: "", email: "", password: "", });
 
   const handleChange = (e) => {
     setFormData({
@@ -17,9 +14,7 @@ const LoginPopup = ({ setShowLogin }) => {
     });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
+  const handleSubmit = async (e) => { e.preventDefault()
     if (currentState === "Sign Up") {
       try {
         const response = await fetch(
@@ -31,10 +26,9 @@ const LoginPopup = ({ setShowLogin }) => {
             },
             body: JSON.stringify(formData),
           }
-        );
+        )
 
         const data = await response.json();
-
         if (response.ok) {
           alert("Registration successful!");
           setCurrentState("Login");
@@ -46,30 +40,29 @@ const LoginPopup = ({ setShowLogin }) => {
         console.error("Error:", error);
       }
     }
-  };
+  }
 
   return (
     <div className="login-popup">
       <form className="login-popup-container" onSubmit={handleSubmit}>
         <div className="login-popup-title">
           <h2>{currentState}</h2>
-          <img
-            onClick={() => setShowLogin(false)}
-            src={assets.cross_icon}
-            alt=""
-          />
+          <img onClick={() => setShowLogin(false)} src={assets.cross_icon} alt="" />
         </div>
         <div className="login-popup-inputs">
-          {currentState === "Login" ? null : (
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              required
-              value={formData.name}
-              onChange={handleChange}
-            />
-          )}
+          {
+            currentState === "Login" 
+            ? null 
+            : ( <input
+                  type="text"
+                  name="name"
+                  placeholder="Name"
+                  required
+                  value={formData.name}
+                  onChange={handleChange}
+                />
+              )
+          }
           <input
             type="email"
             name="email"
@@ -90,20 +83,14 @@ const LoginPopup = ({ setShowLogin }) => {
         <button type="submit">
           {currentState === "Sign Up" ? "Create account" : "Login"}
         </button>
-        {currentState === "Login" ? (
-          <p>
-            Don't have an account?{" "}
-            <span onClick={() => setCurrentState("Sign Up")}>Sign Up</span>
-          </p>
-        ) : (
-          <p>
-            Already have an account?{" "}
-            <span onClick={() => setCurrentState("Login")}>Login</span>
-          </p>
-        )}
+        {
+          currentState === "Login" 
+          ? ( <p>Don't have an account?{" "}<span onClick={() => setCurrentState("Sign Up")}>Sign Up</span></p>) 
+          : ( <p>Already have an account?{" "} <span onClick={() => setCurrentState("Login")}>Login</span></p>)
+        }
       </form>
     </div>
-  );
-};
+  )
+}
 
 export default LoginPopup;
