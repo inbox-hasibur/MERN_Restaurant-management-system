@@ -10,7 +10,7 @@ function Header() {
       <p>choose from a diverse menu featuring a delectable array of dishes crafted with the finest</p>
       <button>View Menu</button>
       </div>
-    </div>
+    </div> 
   )
 }
 
