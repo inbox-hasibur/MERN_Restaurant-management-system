@@ -1,37 +1,84 @@
 .add {
-    width: 70%;
-    margin-left: max(5vw, 25px);
-    margin-top: 50px;
-    color: #6d6d6d;
-    font-size: 16px;
-  }
-.add form{
-    gap: 20px;
+  width: 70%;
+  margin-left: max(5vw, 25px);
+  margin-top: 50px;
+  color: #6d6d6d;
+  font-size: 16px;
 }
+
+.add form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .add-img-upload img {
-    width: 120px;
+  width: 120px;
+  border-radius: 5px; /* Optional: Add a small radius to the image */
+  object-fit: cover; /* Ensures the image maintains aspect ratio */
+}
+
+.add-product-name,
+.add-product-description {
+  width: 100%;
+  max-width: 280px;
+}
+
+.add-product-name input,
+.add-product-description textarea {
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px; /* Added border-radius for styling */
+  font-size: 14px;
+}
+
+.add-category-price {
+  display: flex;
+  gap: 15px;
+}
+
+.add-category-price select,
+.add-category-price input {
+  max-width: 120px;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px; /* Consistent styling */
+  font-size: 14px;
+}
+
+.add-btn {
+  max-width: 120px;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px; /* Smooth button edges */
+  font-size: 14px;
+  transition: background-color 0.3s ease-in-out; /* Smooth transition */
+}
+
+.add-btn:hover {
+  background-color: #333; /* Darker shade on hover */
+}
+
+@media (max-width: 768px) {
+  .add {
+    width: 90%;
+    margin-left: 5vw;
   }
-  
   .add-product-name,
   .add-product-description {
-    width: max(40%, 280px);
-  }
-  .add-product-name input,
-  .add-product-description textarea {
-    padding: 10px;
+    width: 100%;
+    max-width: none; /* Remove max-width for smaller screens */
   }
   .add-category-price select,
   .add-category-price input {
-    max-width: 120px;
-    padding: 10px;
+    max-width: 100%;
   }
-  
   .add-btn {
-    max-width: 120px;
-    border: none;
-    padding: 10px;
-    background-color: black;
-    color: white;
-    cursor: pointer;
+    width: 100%;
   }
-  
+}

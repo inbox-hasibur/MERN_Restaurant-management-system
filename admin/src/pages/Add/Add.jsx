@@ -1,61 +1,84 @@
-import React, { useState } from 'react'
-import './Add.css'
-import { assets } from '../../assets/assets'
-import axios from "axios"
-import { data } from 'react-router-dom';
+import React, { useState } from 'react';
+import './Add.css';
+import { assets } from '../../assets/assets'; // Ensure this is correctly imported
+import axios from "axios";
 import { toast } from 'react-toastify';
 
-const Add = () => {
-  const url = "http://localhost:4000";
-  const [image, setImage] = useState(false);
-  const [data,setData] = useState({
-    name:"",
-    description:"",
-    price:"",
-    category:"Salad",
-  })
-  const onChangeHandler =(event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    setData(data=> ({...data,[name]:value}))
-  }
+const Add = ({ url }) => {
+  const [data, setData] = useState({
+    name: "",
+    description: "",
+    price: "",
+    category: "Salad",
+    image: null, // Added image to the data state
+  });
+
+  const onChangeHandler = (event) => {
+    const { name, value } = event.target;
+    setData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const onImageChange = (event) => {
+    setData((prevState) => ({
+      ...prevState,
+      image: event.target.files[0], // Save the selected image file
+    }));
+  };
+
   const onSubmitHandler = async (event) => {
     event.preventDefault();
-    const FormData = new FormData();
-    formData.append("name",data.name)
-    formData.append("description",data.description)
-    formData.append("price",Number(data.price))
-    formData.append("category",data.category)
-    formData.append("image",data.image)
-    const response = await axios.post(`${url}/api/food/add`, formData );
-    if(response.data.success){
-      setData({
-        name:"",
-        description:"",
-        price:"",
-        category:"Salad",
-      })
-      setImage(false)
-      toast.success(response.data.message)
 
-    }
-    else{
-
+    // If there's no image selected, show an error toast
+    if (!data.image) {
+      toast.error("Please upload an image.");
+      return;
     }
 
-  }
+    const formData = new FormData();
+    formData.append("name", data.name);
+    formData.append("description", data.description);
+    formData.append("price", Number(data.price)); // Ensure price is a number
+    formData.append("category", data.category);
+    formData.append("image", data.image); // Appending the image file
+
+    try {
+      const response = await axios.post(`${url}/api/food/add`, formData);
+
+      if (response.data.success) {
+        // Reset form and show success toast
+        setData({
+          name: "",
+          description: "",
+          price: "",
+          category: "Salad",
+          image: null, // Reset image state
+        });
+        toast.success(response.data.message);
+      } else {
+        toast.error(response.data.message);
+      }
+    } catch (error) {
+      toast.error("Server error, please try again later.");
+    }
+  };
+
   return (
     <div className='add'>
       <form className='flex-col' onSubmit={onSubmitHandler}>
         <div className="add-img-upload flex-col">
           <p>Upload Image</p>
           <label htmlFor="image">
-            {image
-              ? <img src={URL.createObjectURL(image)} alt="Uploaded Preview" />
-              : <img src={assets.upload_area} alt="Upload Icon" />}
+            {data.image ? (
+              <img src={URL.createObjectURL(data.image)} alt="Uploaded Preview" />
+            ) : (
+              <img src={assets.upload_area} alt="Upload Icon" />
+            )}
           </label>
           <input
-            onChange={(e) => setImage(e.target.files[0])}
+            onChange={onImageChange}
             type="file"
             id="image"
             hidden
@@ -65,12 +88,24 @@ const Add = () => {
 
         <div className="add-product-name flex-col">
           <p>Product Name</p>
-          <input onChange={onChangeHandler} value={data.name} type="text" name="name" placeholder="Type here" />
+          <input
+            onChange={onChangeHandler}
+            value={data.name}
+            type="text"
+            name="name"
+            placeholder="Type here"
+          />
         </div>
 
         <div className="add-product-description flex-col">
           <p>Product Description</p>
-          <textarea onChange={onChangeHandler} value={data.description} name="description" placeholder="Write content here" required></textarea>
+          <textarea
+            onChange={onChangeHandler}
+            value={data.description}
+            name="description"
+            placeholder="Write content here"
+            required
+          ></textarea>
         </div>
 
         <div className="add-category-price">
@@ -90,14 +125,20 @@ const Add = () => {
 
           <div className="add-price flex-col">
             <p>Product Price</p>
-            <input onChange={onChangeHandler} value={data.price} type="number" name="price" placeholder="$20" />
+            <input
+              onChange={onChangeHandler}
+              value={data.price}
+              type="number"
+              name="price"
+              placeholder="$20"
+            />
           </div>
         </div>
 
         <button type="submit" className="add-btn">Add</button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default Add
+export default Add;
