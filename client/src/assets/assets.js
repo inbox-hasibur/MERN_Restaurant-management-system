@@ -85,232 +85,138 @@ export const assets = {
 export const food_list = [
     {
         _id: "1",
-        name: "Greek salad",
+        name: "Kacchi Biryani",
         image: food_1,
-        price: 12,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
+        price: 450,
+        description: "Traditional Dhaka-style kacchi biryani with premium mutton and aromatic spices",
+        category: "Biryani"
     },
     {
         _id: "2",
-        name: "Veg salad",
-        image: food_2,
-        price: 18,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
-    }, {
-        _id: "3",
-        name: "Clover Salad",
-        image: food_3,
-        price: 16,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
-    }, {
-        _id: "4",
-        name: "Chicken Salad",
-        image: food_4,
-        price: 24,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
-    }, {
-        _id: "5",
-        name: "Lasagna Rolls",
+        name: "Chicken Biryani",
         image: food_5,
-        price: 14,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Rolls"
-    }, {
-        _id: "6",
-        name: "Peri Peri Rolls",
-        image: food_6,
-        price: 12,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Rolls"
-    }, {
-        _id: "7",
-        name: "Chicken Rolls",
+        price: 280,
+        description: "Aromatic biryani with tender chicken pieces and special spices",
+        category: "Biryani"
+    },
+    {
+        _id: "3",
+        name: "Beef Tehari",
+        image: food_2,
+        price: 320,
+        description: "Flavorful Bengali-style beef tehari cooked with special spices and premium beef",
+        category: "Rice"
+    },
+    {
+        _id: "4",
+        name: "Bhuna Khichuri",
         image: food_7,
-        price: 20,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Rolls"
-    }, {
-        _id: "8",
-        name: "Veg Rolls",
-        image: food_8,
-        price: 15,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Rolls"
-    }, {
-        _id: "9",
-        name: "Ripple Ice Cream",
+        price: 220,
+        description: "Special bhuna khichuri cooked with ghee and premium rice",
+        category: "Rice"
+    },
+    {
+        _id: "5",
+        name: "Morog Polao",
         image: food_9,
-        price: 14,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
-    }, {
-        _id: "10",
-        name: "Fruit Ice Cream",
+        price: 320,
+        description: "Special chicken polao with aromatic rice and spices",
+        category: "Rice"
+    },
+    {
+        _id: "6",
+        name: "Mutton Rezala",
+        image: food_3,
+        price: 450,
+        description: "Classic Bengali-style mutton rezala in creamy white gravy",
+        category: "Curry"
+    },
+    {
+        _id: "7",
+        name: "Beef Bhuna",
         image: food_10,
-        price: 22,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
-    }, {
-        _id: "11",
-        name: "Jar Ice Cream",
-        image: food_11,
-        price: 10,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
-    }, {
-        _id: "12",
-        name: "Vanilla Ice Cream",
+        price: 380,
+        description: "Spicy beef bhuna with tender meat pieces and special masala",
+        category: "Curry"
+    },
+    {
+        _id: "8",
+        name: "Mejbani Beef",
+        image: food_13,
+        price: 450,
+        description: "Chittagonian special mejbani beef curry with authentic spices",
+        category: "Curry"
+    },
+    {
+        _id: "9",
+        name: "Fish Curry",
         image: food_12,
-        price: 12,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
+        price: 220,
+        description: "Traditional Bengali fish curry with rui fish",
+        category: "Fish"
+    },
+    {
+        _id: "10",
+        name: "Chicken Shawarma",
+        image: food_6,
+        price: 180,
+        description: "Fresh pita bread filled with marinated chicken, vegetables and special sauce",
+        category: "Shawarma"
+    },
+    {
+        _id: "11",
+        name: "Special Shawarma",
+        image: food_8,
+        price: 220,
+        description: "Double layered shawarma with extra meat and cheese",
+        category: "Shawarma"
+    },
+    {
+        _id: "12",
+        name: "Chicken Sandwich",
+        image: food_15,
+        price: 160,
+        description: "Grilled chicken sandwich with fresh vegetables and special sauce",
+        category: "Sandwich"
     },
     {
         _id: "13",
-        name: "Chicken Sandwich",
-        image: food_13,
-        price: 12,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Sandwich"
+        name: "Special Haleem",
+        image: food_4,
+        price: 200,
+        description: "Traditional slow-cooked haleem with wheat, lentils and tender meat",
+        category: "Special"
     },
     {
         _id: "14",
-        name: "Vegan Sandwich",
+        name: "Mixed Vegetables",
         image: food_14,
-        price: 18,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Sandwich"
-    }, {
+        price: 180,
+        description: "Fresh mixed vegetables cooked in Bengali style",
+        category: "Vegetable"
+    },
+    {
         _id: "15",
-        name: "Grilled Sandwich",
-        image: food_15,
-        price: 16,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Sandwich"
-    }, {
-        _id: "16",
-        name: "Bread Sandwich",
+        name: "Coffee",
         image: food_16,
-        price: 24,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Sandwich"
-    }, {
-        _id: "17",
-        name: "Cup Cake",
+        price: 120,
+        description: "Freshly brewed premium coffee with rich aroma",
+        category: "Beverage"
+    },
+    {
+        _id: "16",
+        name: "Muffin Cake",
         image: food_17,
-        price: 14,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Cake"
-    }, {
-        _id: "18",
-        name: "Vegan Cake",
+        price: 10, 
+        description: "Freshly baked soft muffin cake",
+        category: "Snacks"
+    },
+    {
+        _id: "17",
+        name: "Muffin Cake",
         image: food_18,
-        price: 12,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Cake"
-    }, {
-        _id: "19",
-        name: "Butterscotch Cake",
-        image: food_19,
-        price: 20,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Cake"
-    }, {
-        _id: "20",
-        name: "Sliced Cake",
-        image: food_20,
-        price: 15,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Cake"
-    }, {
-        _id: "21",
-        name: "Garlic Mushroom ",
-        image: food_21,
-        price: 14,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pure Veg"
-    }, {
-        _id: "22",
-        name: "Fried Cauliflower",
-        image: food_22,
-        price: 22,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pure Veg"
-    }, {
-        _id: "23",
-        name: "Mix Veg Pulao",
-        image: food_23,
         price: 10,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pure Veg"
-    }, {
-        _id: "24",
-        name: "Rice Zucchini",
-        image: food_24,
-        price: 12,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pure Veg"
-    },
-    {
-        _id: "25",
-        name: "Cheese Pasta",
-        image: food_25,
-        price: 12,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pasta"
-    },
-    {
-        _id: "26",
-        name: "Tomato Pasta",
-        image: food_26,
-        price: 18,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pasta"
-    }, {
-        _id: "27",
-        name: "Creamy Pasta",
-        image: food_27,
-        price: 16,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pasta"
-    }, {
-        _id: "28",
-        name: "Chicken Pasta",
-        image: food_28,
-        price: 24,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pasta"
-    }, {
-        _id: "29",
-        name: "Buttter Noodles",
-        image: food_29,
-        price: 14,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Noodles"
-    }, {
-        _id: "30",
-        name: "Veg Noodles",
-        image: food_30,
-        price: 12,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Noodles"
-    }, {
-        _id: "31",
-        name: "Somen Noodles",
-        image: food_31,
-        price: 20,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Noodles"
-    }, {
-        _id: "32",
-        name: "Cooked Noodles",
-        image: food_32,
-        price: 15,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Noodles"
+        description: "Freshly baked soft muffin cake",
+        category: "Snacks"
     }
-]
+];
