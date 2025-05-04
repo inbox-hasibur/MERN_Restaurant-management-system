@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react'
 import './FoodItem.css'
 import {assets} from '../../assets/assets'
@@ -5,9 +6,6 @@ import {assets} from '../../assets/assets'
 const FoodItem = ({id,name,price,description,image})=> {
 
     const[iteamCount,setItemCount]=useState(0)
-
-
-
 
   return (
     <div className='food-item'>
@@ -20,26 +18,17 @@ const FoodItem = ({id,name,price,description,image})=> {
                 <p>{iteamCount}</p>
                 <img onClick={()=>setItemCount(prev=>prev+1)} src={assets.add_icon_green} alt="" />
             </div>
-
         }
-
       </div>
       <div className="food-item-info">
         <div className="food-item-name-rating">
           <p>{name}</p>
           <img src={assets.rating_starts} alt="" />
 
-
-
         </div>
         <p className="food-item-desc">{description}</p>
-        <p className="food-item-price">${price}</p>
-        
-
-        
-        
+        <p className="food-item-price">${price}</p>    
       </div>
-      
     </div>
   )
 }
