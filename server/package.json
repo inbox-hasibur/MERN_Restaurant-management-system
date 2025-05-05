@@ -2,7 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "description": "MERN Restaurant-management-system",
-  "main": "src/server.js",
+  "main": "server.js",
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
