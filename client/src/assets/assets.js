@@ -199,24 +199,8 @@ export const food_list = [
         _id: "15",
         name: "Coffee",
         image: food_16,
-        price: 120,
+        price: 20,
         description: "Freshly brewed premium coffee with rich aroma",
         category: "Beverage"
-    },
-    {
-        _id: "16",
-        name: "Muffin Cake",
-        image: food_17,
-        price: 10, 
-        description: "Freshly baked soft muffin cake",
-        category: "Snacks"
-    },
-    {
-        _id: "17",
-        name: "Muffin Cake",
-        image: food_18,
-        price: 10,
-        description: "Freshly baked soft muffin cake",
-        category: "Snacks"
     }
 ];
