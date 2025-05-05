@@ -3,11 +3,13 @@ import cors from 'cors';
 import dotenv from 'dotenv'
 import { connectDB } from './config/db.js';
 import User from './models/userModel.js';
+import foodRouter from './routes/foodRoute.js';
 
 dotenv.config();
 const app = express();
-app.use(cors());
+
 app.use(express.json());
+app.use(cors());
 
 // app.get('/', (req, res) => {
 //   res.send('Welcome to server!');
@@ -32,6 +34,10 @@ app.post('/api/users/register', async (req, res) => {
         });
     }
 });
+
+// API Endpoints
+app.use("/api/food", foodRouter);
+app.use('/images', express.static('uploads'));
 
 // app.get('/test', (req, res) => {
 //     res.status(200).send({ 
