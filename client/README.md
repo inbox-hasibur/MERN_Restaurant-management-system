@@ -3,7 +3,7 @@
 1:58:50 - 2:04:16 AppDownload (not need)
 2:05:00 -   Mobile Responsive
 2:50:44 - Cart Fr continue
-
+3:00:00 - Cart Responsiveness
 
 Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh

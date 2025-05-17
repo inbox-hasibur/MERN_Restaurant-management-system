@@ -8,8 +8,7 @@ function Footer() {
             <div className='footer-content'>
                 <div className="footer-content-left">
                     <img src={assets.logo} alt="" />
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus omnis commodi ipsa neque unde cupiditate excepturi rerum laborum.
-                    </p>
+                    <p>Fast food cafeteria and restaurant <br />service inside the IUBAT Campus <br />near Kamarpara, Uttara, Dhaka.</p>
                     <div className="footer-social-icons">
                         <img src={assets.facebook_icon} alt="" />
                         <img src={assets.twitter_icon} alt="" />
@@ -17,10 +16,17 @@ function Footer() {
                     </div>
                 </div>
                 <div className="footer-content-center">
-
+                    <h3>Quick Links</h3>
+                    <p>Home</p>
+                    <p>Menu</p>
+                    <p>About Us</p>
+                    <p>Contact</p>
                 </div>
                 <div className="footer-content-right">
-
+                    <h3>Contact</h3>
+                    <p>Phone: +880 1234-567890</p>
+                    <p>Email: info@lemonlime.com</p>
+                    <p>Address: Dhaka, Bangladesh</p>
                 </div>
             </div>
         </div>

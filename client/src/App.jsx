@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import Navbar from './components/Navbar/Navbar'
-import { Route, Routes, Navigate } from 'react-router-dom' // Add Navigate
+import { Route, Routes, Navigate } from 'react-router-dom'
 import Home from './pages/Home/Home'
 import Cart from './pages/Cart/Cart'
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder'
+import Footer from './components/Footer/Footer'
 import LoginPopup from './components/LoginPopup/LoginPopup'
 
 const App = () => {
@@ -17,13 +18,11 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/order" element={<PlaceOrder />} />
-          <Route path="*" element={<Navigate to="/" />} /> {/* Add catch-all route */}
+          <Route path='/order' element={<PlaceOrder />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
+        <Footer />
       </div>
-      <footer className='footer'>
-        <p>© 2025 Hasibur Rahman</p>
-      </footer>
     </>
   )
 }
