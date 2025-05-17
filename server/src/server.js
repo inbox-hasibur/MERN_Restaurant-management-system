@@ -46,7 +46,7 @@ app.use('/images', express.static('uploads'));
 // });
 
 
-app.listen(5000, () => {
+app.listen(3000, () => {
     connectDB();
-    console.log('Server running at http://localhost:5000/');
+    console.log('Server running at http://localhost:3000/');
 });

@@ -2,9 +2,7 @@ import express from 'express';
 import { addFood, listFood, removeFood} from '../controllers/foodController';
 import multer from 'multer';
 
-
 const foodRouter = express.Router();
-
 
 const storage = multer.diskStorage({
     destination:"uploads",

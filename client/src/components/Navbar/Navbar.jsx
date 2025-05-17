@@ -17,9 +17,21 @@ const Navbar = ({setShowLogin}) => {
         setMenu("menu");
     };
 
+    const scrollToContact = (e) => {
+        e.preventDefault();
+        const footer = document.getElementById('footer');
+        if (footer) {
+            footer.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+        setMenu("contact-us");
+    };
+
     return (
         <div className="navbar">
-            <img src={assets.logo} alt="" className="logo" />
+            <Link to='/'><img src={assets.logo} alt="" className="logo" /></Link>
             <ul className="navbar-menu">
                 <Link to="/" onClick={()=>setMenu("home")} className={menu=="home"?"active":""}>Home</Link>
                 <a href='#food-display' 
@@ -31,12 +43,12 @@ const Navbar = ({setShowLogin}) => {
                     Menu
                 </a>
                 <a href='#' onClick={()=>setMenu("find-us")} className={menu=="find-us"?"active":""}>Find-us</a>
-                <a href='#' onClick={()=>setMenu("contact-us")} className={menu=="contact-us"?"active":""}>Contact Us</a>
+                <a href='#footer' onClick={scrollToContact} className={menu=="contact-us"?"active":""}>Contact Us</a>
             </ul>
             <div className="navbar-right">
                 <img src={assets.search_icon} alt="" />
                 <div className="navbar-search-icon">
-                    <img src={assets.basket_icon} alt="" />
+                    <Link to='/cart'><img src={assets.basket_icon} alt="" /></Link>
                     <div className="dot"></div>
                 </div>
                 <button onClick={()=>setShowLogin(true)}>Sign In</button>
