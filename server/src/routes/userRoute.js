@@ -1,10 +1,10 @@
 import express from 'express';
-import { register, login, getProfile } from '../controllers/userController.js';
+import { loginUser, registerUser, getProfile } from '../controllers/userController.js';
 
-const router = express.Router();
+const userRouter = express.Router();
 
-router.post('/register', register);
-router.post('/login', login);
+router.post('/register', registerUser);
+router.post('/login', loginUser);
 router.get('/profile', getProfile);
 
-export default router;
+export default userRouter;
