@@ -1,10 +1,12 @@
 import express from 'express';
-import { createOrder, getOrders, updateOrder } from '../controllers/orderController.js';
+import authMiddleware from '../middleware/auth.js';
+import { placeOrder, getOrders, updateOrder, verifyOrder } from '../controllers/orderController.js';
 
-const router = express.Router();
+const orderRouter = express.Router();
 
-router.post('/create', createOrder);
-router.get('/:userId', getOrders);
-router.put('/:orderId', updateOrder);
+orderRouter.post('/place', authMiddleware, placeOrder);
+orderRouter.post('/verify', verifyOrder)
+orderRouter.get('/:userId', getOrders);
+orderRouter.put('/:orderId', updateOrder);
 
-export default router;
+export default orderRouter;
