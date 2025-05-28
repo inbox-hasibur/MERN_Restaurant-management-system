@@ -1,84 +1,50 @@
-import React, { useState } from "react";
+import React, { use, useContext, useState } from "react";
 import "./LoginPopup.css";
 import { assets } from "../../assets/assets";
+import { StoreContext } from "../../context/StoreContext";
+import axios from "axios";
 
 const LoginPopup = ({ setShowLogin }) => {
+
+  const {url,setToken} = useContext(StoreContext);
   
   const [currentState, setCurrentState] = useState("Login")
-  const [formData, setFormData] = useState({ name: "", email: "", password: "", });
+  const [data, setData] = useState({ name: "", email: "", password: "", });
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  const onChangeHandler = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setData(data => ({...data, [name]: value }));
   };
 
-  const handleSubmit = async (e) => { e.preventDefault()
-    if (currentState === "Sign Up") {
-      try {
-        const response = await fetch(
-          "http://localhost:5000/api/users/register",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-          }
-        )
+  const onLogin = async (event) => { 
+    event.preventDefault()
+    let newUrl = url; 
+    if (currentState === "Login") {newUrl += "/api/users/login";}
+    else { newUrl += "/api/users/register" }
 
-        const data = await response.json();
-        if (response.ok) {
-          alert("Registration successful!");
-          setCurrentState("Login");
-        } else {
-          alert(data.message || "Registration failed");
-        }
-      } catch (error) {
-        alert("Error registering user");
-        console.error("Error:", error);
-      }
+    const response = await axios.post(newUrl, data);
+
+    if (response.data.success) {
+      setToken(response.data.token);
+      localStorage.setItem("token", response.data.token);
+      setShowLogin(false);
     }
+    else { alert(response.data.message); }
   }
 
   return (
     <div className="login-popup">
-      <form className="login-popup-container" onSubmit={handleSubmit}>
+      <form onSubmit={onLogin} className="login-popup-container" >
         <div className="login-popup-title">
           <h2>{currentState}</h2>
           <img onClick={() => setShowLogin(false)} src={assets.cross_icon} alt="" />
         </div>
         <div className="login-popup-inputs">
-          {
-            currentState === "Login" 
-            ? null 
-            : ( <input
-                  type="text"
-                  name="name"
-                  placeholder="Name"
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                />
-              )
-          }
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            required
-            value={formData.email}
-            onChange={handleChange}
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            required
-            value={formData.password}
-            onChange={handleChange}
-          />
+          {currentState === "Login"?<></>
+          :(<input type="text" name="name" placeholder="Name" required value={data.name} onChange={onChangeHandler}/>)}
+          <input type="email" name="email" placeholder="Email" required value={data.email} onChange={onChangeHandler}/>
+          <input type="password" name="password" placeholder="Password" required value={data.password} onChange={onChangeHandler}/>
         </div>
         <button type="submit">
           {currentState === "Sign Up" ? "Create account" : "Login"}

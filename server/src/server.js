@@ -1,9 +1,15 @@
 import express from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv'
+import dotenv from 'dotenv' //
 import { connectDB } from './config/db.js';
-import User from './models/userModel.js';
+import User from './models/userModel.js'; //
 import foodRouter from './routes/foodRoute.js';
+import userRouter from './routes/userRoute.js';
+import 'dotenv/config'; 
+import { use } from 'react'; //
+import cartRouter from './routes/cartRoute.js';
+import orderRouter from './routes/orderRoute.js';
+
 
 dotenv.config();
 const app = express();
@@ -37,7 +43,10 @@ app.post('/api/users/register', async (req, res) => {
 
 // API Endpoints
 app.use("/api/food", foodRouter);
-app.use('/images', express.static('uploads'));
+app.use("/images", express.static('uploads'));
+app.use("/api/user", userRouter);
+app.use("/api/cart", cartRouter);
+app.use("/api/orders", orderRouter);
 
 // app.get('/test', (req, res) => {
 //     res.status(200).send({ 
@@ -50,3 +59,4 @@ app.listen(3000, () => {
     connectDB();
     console.log('Server running at http://localhost:3000/');
 });
+

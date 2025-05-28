@@ -4,8 +4,16 @@ import { assets } from '../../assets/assets';
 import { Link } from 'react-router-dom';
 
 const Navbar = ({setShowLogin}) => {
+    
     const [menu,setMenu] = useState("home");
-
+    const {getTotalCartAmount,token,setToken} = useContext(StoreContext);
+    const navigate = useNavigate();
+    const logout = () => {
+        localStorage.removeItem("token");
+        setToken("");
+        navigate("/");
+    }
+    
     const scrollToFoodDisplay = () => {
         const foodDisplay = document.getElementById('food-display');
         if (foodDisplay) {
@@ -16,7 +24,7 @@ const Navbar = ({setShowLogin}) => {
         }
         setMenu("menu");
     };
-
+    
     const scrollToContact = (e) => {
         e.preventDefault();
         const footer = document.getElementById('footer');
@@ -51,7 +59,16 @@ const Navbar = ({setShowLogin}) => {
                     <Link to='/cart'><img src={assets.basket_icon} alt="" /></Link>
                     <div className="dot"></div>
                 </div>
-                <button onClick={()=>setShowLogin(true)}>Sign In</button>
+                {!token ? <button onClick={()=>setShowLogin(true)}>Sign In</button> 
+                : <div className='navbar-profile'>
+                    <img src={assets.profile_icon} alt="" />
+                    <ul className="nav-profile-dropdown">
+                        <li><img src={assets.bag_icon} alt="" /></li><p>Orders</p>
+                        <hr />
+                        <li onClick={logout}><img src={assets.logout_icon} alt="" /></li><p>Logout</p>
+                    </ul>
+                  </div>}
+                
             </div>
         </div>
     );
