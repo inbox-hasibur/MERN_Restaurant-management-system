@@ -7,7 +7,12 @@ const Navbar = ({setShowLogin}) => {
     
     const [menu,setMenu] = useState("home");
     const {getTotalCartAmount,token,setToken} = useContext(StoreContext);
-    
+    const navigate = useNavigate();
+    const logout = () => {
+        localStorage.removeItem("token");
+        setToken("");
+        navigate("/");
+    }
     
     const scrollToFoodDisplay = () => {
         const foodDisplay = document.getElementById('food-display');
@@ -19,7 +24,7 @@ const Navbar = ({setShowLogin}) => {
         }
         setMenu("menu");
     };
-
+    
     const scrollToContact = (e) => {
         e.preventDefault();
         const footer = document.getElementById('footer');
@@ -60,7 +65,7 @@ const Navbar = ({setShowLogin}) => {
                     <ul className="nav-profile-dropdown">
                         <li><img src={assets.bag_icon} alt="" /></li><p>Orders</p>
                         <hr />
-                        <li><img src={assets.logout_icon} alt="" /></li><p>Logout</p>
+                        <li onClick={logout}><img src={assets.logout_icon} alt="" /></li><p>Logout</p>
                     </ul>
                   </div>}
                 
