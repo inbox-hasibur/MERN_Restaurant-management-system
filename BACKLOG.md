@@ -1,11 +1,5 @@
 # Restaurant management system
 
-# TEAM SIGMA
-Hasibur (Fullstack)
-Sukanna (Fronend+Backend)
-Sadia (Fronend)
-Shamnur(Backend)
-
 # Requirements
 CRUD Oparation
 Payment Gateway - Stripe API (AUTH)
