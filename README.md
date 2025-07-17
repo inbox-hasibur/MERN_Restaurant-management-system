@@ -5,5 +5,5 @@ A simple and efficient restaurant management system built using the MERN stack (
 
 # Live urls
 admin : https://mern-rms.vercel.app/
-client: https://mern-rms-tfzr.vercel.app/
+client: https://iubat-lemonlime.vercel.app/
 server: https://mern-rms.onrender.com
